@@ -241,19 +241,26 @@ h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/prof.jpg") top center;
-  background-size: cover;
+  /* Background hitam solid dengan overlay gradient halus agar elegan */
+  background: linear-gradient(135deg, rgba(10, 12, 16, 0.95) 0%, rgba(20, 24, 33, 0.98) 100%), 
+              url("../img/ui.jpg") center center / cover no-repeat fixed;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
 }
 
 #hero:before {
   content: "";
-  background: rgba(5, 13, 24, 0.3);
   position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
+  top: 20%;
+  left: 10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(13, 110, 253, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
 #hero .hero-container {
@@ -265,23 +272,29 @@ h6 {
 #hero h1 {
   margin: 0 0 10px 0;
   font-size: 64px;
-  font-weight: 700;
-  line-height: 56px;
-  color: #fff;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #ffffff;
+  letter-spacing: -1px;
+  background: linear-gradient(90deg, #ffffff, #a5c7ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #hero p {
-  color: #fff;
+  color: #e0e6ed;
   margin-bottom: 50px;
   font-size: 26px;
+  font-weight: 400;
   font-family: "Poppins", sans-serif;
 }
 
 #hero p span {
-  color: #fff;
+  color: #4dabf7;
   padding-bottom: 4px;
   letter-spacing: 1px;
-  border-bottom: 3px solid #149ddd;
+  border-bottom: 3px solid #0d6efd;
+  font-weight: 600;
 }
 
 @media (min-width: 1024px) {
@@ -307,7 +320,7 @@ h6 {
 # Sections General
 --------------------------------------------------------------*/
 section {
-  padding: 60px 0;
+  padding: 80px 0;
   overflow: hidden;
 }
 
@@ -316,28 +329,38 @@ section {
 }
 
 .section-title {
-  padding-bottom: 30px;
+  padding-bottom: 40px;
 }
 
 .section-title h2 {
   font-size: 32px;
-  font-weight: bold;
+  font-weight: 700;
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
-  color: #173b6c;
+  color: #1a202c;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .section-title h2::after {
   content: "";
   position: absolute;
   display: block;
-  width: 50px;
-  height: 3px;
-  background: #149ddd;
+  width: 60px;
+  height: 4px;
+  background: #0d6efd;
   bottom: 0;
   left: 0;
+  border-radius: 2px;
 }
+
+
+.section-title text-center h2::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 
 .section-title p {
   margin-bottom: 0;
@@ -346,36 +369,35 @@ section {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
-.about .content h3 {
-  font-weight: 700;
-  font-size: 26px;
-  color: #173b6c;
+#about .card {
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #ffffff;
 }
 
-.about .content ul {
-  list-style: none;
-  padding: 0;
+#about .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08) !important;
 }
 
-.about .content ul li {
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
+#about .card-title {
+  font-size: 1.15rem;
+  color: #2d3748;
 }
 
-.about .content ul strong {
-  margin-right: 10px;
+#about .badge.bg-primary {
+  background-color: #0d6efd !important;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
 }
 
-.about .content ul i {
-  font-size: 16px;
-  margin-right: 5px;
-  color: #149ddd;
-  line-height: 0;
-}
-
-.about .content p:last-child {
-  margin-bottom: 0;
+/* Quote Highlight Box */
+#about .border-start {
+  border-left-width: 5px !important;
+  border-radius: 12px;
+  background: #f8fafc;
 }
 
 /*--------------------------------------------------------------
